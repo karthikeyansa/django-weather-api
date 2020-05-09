@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>weather</title>
+</head>
+<body>
+<center>
+	<form method="POST">
+	{% csrf_token %} 
+	Cityname {{ form.name }}
+	<input type="submit" name="submit" value="submit"><br><br>
+	<div class="form-group">
+	{% if city_weather.city %}
+		city: {{ city_weather.city }}<br>
+		temperature : {{ city_weather.temperature }}<br>
+		description : {{ city_weather.description }}&nbsp;
+		 <img src="http://openweathermap.org/img/w/{{ city_weather.icon }}.png" alt="image"><br>
+	{% endif %}
+	</div>
+	</form>
+</center>
+</body>
+</html>
